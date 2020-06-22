@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-img-left d-none d-md-flex">
+             <!-- Background image for card set in CSS! -->
+          </div>
+          <div class="card-body">
+			<div class="panel-body" *ngIf="mode==1">
+            <h5 class="card-title text-center">Ajouter Un Nouveau Enseignant</h5>
+            <form class="form-signin" #f="ngForm" (ngSubmit)="addEnseignant(f.value)">
+              <div class="form-group">
+                <input type="text" id="inputUserame" class="form-control" placeholder="Nom Enseignant" required autofocus name="nomENS" ngModel>
+              </div>
+			  <div class="form-group">
+                <input type="text" id="inputUserame" class="form-control" placeholder="Prenom Enseignant" required name="prenomENS" ngModel>
+              </div>
+			  <div class="form-group">
+                <input type="text" id="inputUserame" class="form-control" placeholder="Adresse Enseignant" required name="adresseENS" ngModel>
+              </div>
+			  <div class="form-group">
+                <input type="text" id="inputUserame" class="form-control" placeholder="Diplome Enseignant" required name="diplome" ngModel>
+              </div>
+
+              <div class="form-group">
+                    <select class="form-control" (ngModelChange)="onChange($event)" placeholder="Choisir Departement" (ngModel)="departement" name="department">
+                        <option [ngValue]="null" [disabled]="true" >Choisir Une Département</option>
+                        <option [ngValue]="d" *ngFor="let d of departements" >
+                        
+                            {{d.nomDEP}}
+                        </option>
+                    </select>
+                </div>
+				<div class="form-group">
+                    <select class="form-control" (ngModelChange)="onChangeCours($event)" (ngModel)="cours" name="cours">
+                        <option [ngValue]="null" [disabled]="true" >Choisir Un Cours</option>
+                        <option [ngValue]="c" *ngFor="let c of coursList" >
+                            {{c.libelleC}}
+                        </option>
+                    </select>
+                </div>
+              
+              <hr>
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Enregistrer</button>
+              <hr class="my-4">
+            </form>
+			</div>
+			
+			<div class="panel-body" *ngIf="mode==2">
+            <div class="form-group">
+                <label>Nom Enseignant: </label>
+                <label>{{enseignant.nomENS}}</label>
+            </div>
+            <div class="form-group">
+                <label>Prenom Enseignant: </label>
+                <label>{{enseignant.prenomENS}}</label>
+            </div>
+            <div class="form-group">
+                <label>adresse Enseignant: </label>
+                <label>{{enseignant.adresseENS}}</label>
+            </div>
+            <div class="form-group">
+                <label>diplome Enseignant: </label>
+                <label>{{enseignant.diplome}}</label>
+            </div>
+            <div class="form-group">
+                <label>Departement Enseignant: </label>
+                <label>{{enseignant.departement.nomDEP}}</label>
+            </div>
+            <button class="btn btn-success" (click)="onNewEnseignant()">Ajouter</button>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>

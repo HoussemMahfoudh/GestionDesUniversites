@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="panel panel-default">
+    <div class="panel panel-heading">Edition des Etudiants</div>
+    <div class="panel-body" *ngIf="etudiant">
+    
+      <form #f="ngForm" (ngSubmit)="updateEtudiant(f.value)">
+        <div class="form-group">
+            <label class="control-label">Nom</label>
+            <input class="form-control" type="text" name="nomETU" ngModel [(ngModel)]="etudiant.nomETU">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Prenom</label>
+            <input class="form-control" type="text" name="prenomETU" ngModel [(ngModel)]="etudiant.prenomETU">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Adresse</label>
+            <input class="form-control" type="text" name="adresseETU" ngModel [(ngModel)]="etudiant.adresseETU">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Date</label>
+            <input class="form-control" type="text" name="dateEntree" ngModel [(ngModel)]="etudiant.dateEntree">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Enseignants et leurs cours</label>
+            <ul>
+                <li *ngFor="let e of ensChecked">{{e.nomENS}} {{e.prenomENS}} - {{e.cours.libelleC}}</li>
+            </ul>
+        </div>
+        <div *ngIf="ensChecked">
+            <div class="form-check" *ngFor="let ens of enseignants; let i=index">
+                <input class="form-check-input"  [ngModel]="isSelected(i,ens)" (ngModelChange)="onChange(ens, $event)" type="checkbox" name="ensgroup_{{i}}">
+                    <label class="form-check-label" style="font-weight: normal">
+                    {{ens.nomENS}} {{ens.prenomENS}} - {{ens.cours.libelleC}}
+                </label>
+            </div> 
+        </div>         
+            <button class="btn btn-success" type="submit">Enregistrer</button>
+        </form>
+    </div>
+    
+    </div>
+    
+    
+    </div>
+    
+    

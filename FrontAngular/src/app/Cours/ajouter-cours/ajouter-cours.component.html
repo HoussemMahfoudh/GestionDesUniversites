@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-img-left d-none d-md-flex">
+             <!-- Background image for card set in CSS! -->
+          </div>
+          <div class="card-body">
+			<div class="panel-body" *ngIf="mode==1">
+            <h5 class="card-title text-center">Ajouter Un Nouveau Cours</h5>
+            <form class="form-signin" #f="ngForm" (ngSubmit)="addCours(f.value)">
+              <div class="form-group">
+                <input type="text" id="inputUserame" class="form-control" placeholder="Libelle COurs" required autofocus name="libelleC" ngModel>
+              </div>
+			  <div class="form-group">
+                        <ul class="checkbox-items">
+                            <li *ngFor="let s of sallesList">
+                                <input type="checkbox" name="salles" (change) ="onCheckedSalle(s,$event)"> Salle {{s.nomS}}
+                            </li>
+                        </ul>
+                    </div>
+              
+              <hr>
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Enregistrer</button>
+              <hr class="my-4">
+            </form>
+			</div>
+			
+			<div class="panel-body" *ngIf="mode==2">
+            <div class="form-group">
+                <label>libelleC: {{cours.libelleC}}</label>
+                <label></label>
+            </div>
+            <button class="btn btn-success" (click)="onNewCours()">Ajouter</button>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>

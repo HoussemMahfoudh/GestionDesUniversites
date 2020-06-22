@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="panel panel-default">
+    <div class="panel panel-heading">Edition des Cours</div>
+    <div class="panel-body" *ngIf="cours">
+    
+      <form #f="ngForm" (ngSubmit)="updateCours(f.value)">
+        <div class="form-group">
+        <label class="control-label">Nom</label>
+        <input class="form-control" type="text" name="libelleC" ngModel [(ngModel)]="cours.libelleC">
+        </div>
+        <div class="form-group">
+                        <ul class="checkbox-items">
+                            <li *ngFor="let s of sallesList">
+                                <input type="checkbox" name="salles" (change) ="onCheckedSalle(s,$event)">  {{s.nomS}}
+                            </li>
+                        </ul>
+                    </div>
+            <button class="btn btn-success" type="submit">Enregistrer</button>
+        </form>
+    </div>
+    
+    </div>
+    
+    
+    </div>
+    
+    

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="panel panel-default">
+    <div class="panel panel-heading">Edition des Universités</div>
+    <div class="panel-body" *ngIf="universite">
+    
+    
+      <form #f="ngForm" (ngSubmit)="updateUniversite(f.value)">
+        <div class="form-group">
+        <label class="control-label">Nom</label>
+        <input class="form-control" type="text" name="nom" ngModel [(ngModel)]="universite.nomUNV">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Adresse</label>
+          <input class="form-control" type="text" name="Adresse" ngModel [(ngModel)]="universite.adresseSite">
+          </div>
+          
+            <button class="btn btn-success" type="submit">Enregistrer</button>
+        </form>
+    </div>
+    
+    </div>
+    
+    
+    </div>
+    
+    

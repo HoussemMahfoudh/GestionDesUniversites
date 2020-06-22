@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="panel panel-default">
+    <div class="panel panel-heading">Edition des Enseignants</div>
+    <div class="panel-body" *ngIf="enseignant">
+    
+      <form #f="ngForm" (ngSubmit)="updateEnseignant(f.value)">
+        <div class="form-group">
+            <label class="control-label">Nom</label>
+            <input class="form-control" type="text" name="nomENS" ngModel [(ngModel)]="enseignant.nomENS">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Prenom</label>
+            <input class="form-control" type="text" name="prenomENS" ngModel [(ngModel)]="enseignant.prenomENS">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Adresse</label>
+            <input class="form-control" type="text" name="adresseENS" ngModel [(ngModel)]="enseignant.adresseENS">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Diplome</label>
+            <input class="form-control" type="text" name="diplome" ngModel [(ngModel)]="enseignant.diplome">
+        </div>
+
+        <div class="form-group" >
+            <label class="control-label">Departement</label>
+            <input class="form-control" type="text" name="departements" ngModel [(ngModel)]="enseignant.departement.nomDEP">
+        </div>
+        <div class="form-group">
+            <select (ngModelChange)="onChange($event)" (ngModel)="enseignant.departement.nomDEP" name="departements">
+                <option [ngValue]="d" *ngFor="let d of departements" >
+                    {{d.nomDEP}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Cours</label>
+            <input class="form-control" type="text" name="cours" ngModel [(ngModel)]="enseignant.cours.libelleC">
+        </div>
+        <div class="form-group">
+            <select (ngModelChange)="onChangeCours($event)" (ngModel)="cours" name="cours">
+                <option [ngValue]="c" *ngFor="let c of coursList" >
+                    {{c.libelleC}}
+                </option>
+            </select>
+        </div>
+            <button class="btn btn-success" type="submit">Enregistrer</button>
+        </form>
+    </div>
+    
+    </div>
+    
+    
+    </div>
+    
+    

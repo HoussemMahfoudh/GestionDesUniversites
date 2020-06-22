@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-img-left d-none d-md-flex">
+             <!-- Background image for card set in CSS! -->
+          </div>
+          <div class="card-body">
+			<div class="panel-body" *ngIf="mode==1">
+            <h5 class="card-title text-center">Ajouter Un Nouveau Etudiant</h5>
+            <form class="form-signin" #f="ngForm" (ngSubmit)="addEtudiant(f.value)">
+              <div class="form-group">
+                <input type="text" id="inputUserame" class="form-control" placeholder="Nom Etudiant" required autofocus name="nomETU" ngModel>
+              </div>
+			  <div class="form-group">
+                <input type="text" id="inputUserame" class="form-control" placeholder="Prenom Etudiant" required name="prenomETU" ngModel>
+              </div>
+			  <div class="form-group">
+                <input type="text" id="inputUserame" class="form-control" placeholder="Adresse Etudiant" required name="adresseETU" ngModel>
+              </div>
+			  <div class="form-group">
+                <input type="text" id="inputUserame" type="date" data-date-format="yyyy/mm/dd" class="form-control" required name="dateEntree" ngModel>
+              </div>
+
+				<div class="form-group">
+                    <ul class="checkbox-items 0">
+                        <li *ngFor="let ens of enseignants">
+                            <input type="checkbox" name="enseignants" (change) ="onCheckedEns(ens,$event)">  {{ens.nomENS}} {{ens.prenomENS}} - {{ens.cours.libelleC}}
+                        </li>
+                    </ul>
+                </div>
+              
+              <hr>
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Enregistrer</button>
+              <hr class="my-4">
+            </form>
+			</div>
+			
+			<div class="panel-body" *ngIf="mode==2">
+				<div class="form-group">
+					<label>Nom Etudiant: </label>
+					<label>{{etudiant.nomETU}}</label>
+				</div>
+				<div class="form-group">
+					<label>Prenom Etudiant: </label>
+					<label>{{etudiant.prenomETU}}</label>
+				</div>
+				<div class="form-group">
+					<label>Adresse Etudiant: </label>
+					<label>{{etudiant.adresseETU}}</label>
+				</div>
+				<div class="form-group">
+					<label>Date Entrée Etudiant: </label>
+					<label>{{etudiant.dateEntree}}</label>
+				</div>
+
+				<button class="btn btn-success" (click)="onNewEtudiant()">Ajouter</button>
+			</div>
+          </div>
+        </div>
+      </div>
+    </div>

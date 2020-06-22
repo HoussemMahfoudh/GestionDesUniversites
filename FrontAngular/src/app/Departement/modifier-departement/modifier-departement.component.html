@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="panel panel-default">
+    <div class="panel panel-heading">Edition des Département</div>
+    <div class="panel-body" *ngIf="departement">
+    
+      <form #f="ngForm" (ngSubmit)="updateDepartement(f.value)">
+        <div class="form-group">
+        <label class="control-label">Nom</label>
+        <input class="form-control" type="text" name="nomDEP" ngModel [(ngModel)]="departement.nomDEP">
+        </div>
+        <div class="form-group">
+            <select (ngModelChange)="onChange($event)" (ngModel)="universite" name="universite">
+                <option [ngValue]="u" *ngFor="let u of universites" >
+                    {{u.nomUNV}}
+                </option>
+            </select>
+        </div>
+            <button class="btn btn-success" type="submit">Enregistrer</button>
+        </form>
+    </div>
+    
+    </div>
+    
+    
+    </div>
+    
+    

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="panel panel-default">
+    <div class="panel panel-heading">Edition des Salles</div>
+    <div class="panel-body" *ngIf="salle">
+    
+    
+      <form #f="ngForm" (ngSubmit)="updateSalle(f.value)">
+        <div class="form-group">
+        <label class="control-label">Nom Salle</label>
+        <input class="form-control" type="text" name="nomS" ngModel [(ngModel)]="salle.nomS">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Capacité</label>
+          <input class="form-control" type="number" name="capacite" ngModel [(ngModel)]="salle.capacite">
+        </div>
+          
+            <button class="btn btn-success" type="submit">Enregistrer</button>
+        </form>
+    </div>
+    
+    </div>
+    
+    
+    </div>
+    
+    
