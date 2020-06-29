@@ -3,8 +3,8 @@ Gestion Des Universités - University Management
 This application contains 6 big parts:
   - University (CRUD + Filter by Department)
   - Department (CRUD + Filter by University)
-  - Teacher (CRUD + Filter by Department and Subjects(classes))
-  - Student (CRUD + Filter by Subjects)
+  - Teacher (CRUD + Filter by Department and Courses)
+  - Student (CRUD + Filter by Courses)
   - Classes
-  - Classroom
+  - Classrooms
   - Admin Dashboard template integration.
